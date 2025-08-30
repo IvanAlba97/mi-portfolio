@@ -1,18 +1,24 @@
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
+import getaways from '../assets/getaways.png';
+import lectorflow from '../assets/lectorflow.png';
+import nebulosafilms from '../assets/nebulosafilms.png';
 
 const projectsData = [
   {
-    title: 'Nombre del Proyecto 1',
-    description: 'Una breve descripción de lo que hace este proyecto, las tecnologías utilizadas, y el rol que desempeñaste.',
+    title: 'GetAways',
+    description: 'GetAways es una aplicación web diseñada para la evaluación de rutas de senderismo. Permite a los usuarios descubrir nuevas rutas, compartir sus experiencias y gestionar sus listas personales de senderismo.',
+    image: getaways
   },
   {
-    title: 'Nombre del Proyecto 2',
-    description: 'Una breve descripción de lo que hace este proyecto, las tecnologías utilizadas, y el rol que desempeñaste.',
+    title: 'LectorFlow',
+    description: 'LectorFlow es una aplicación móvil multiplataforma diseñada para amantes de la lectura. Permite a los usuarios buscar libros, organizar sus lecturas en listas personalizadas y gestionar su biblioteca digital de forma sencilla e intuitiva.',
+    image: lectorflow
   },
   {
-    title: 'Nombre del Proyecto 3',
-    description: 'Una breve descripción de lo que hace este proyecto, las tecnologías utilizadas, y el rol que desempeñaste.',
+    title: 'NebulosaFilms',
+    description: 'NebulosaFilms es una aplicación web que permite buscar información sobre películas. Los usuarios pueden explorar películas, ver detalles, reparto, tráilers y navegar entre los resultados de búsqueda de forma rápida y responsiva.',
+    image: nebulosafilms
   },
 ];
 
@@ -35,6 +41,7 @@ const Projects = () => {
               key={index}
               title={project.title}
               description={project.description}
+              image={project.image}
             />
           ))}
         </div>
