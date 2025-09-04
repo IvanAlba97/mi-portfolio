@@ -1,13 +1,23 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import { motion } from 'framer-motion';
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
-  const project = projectsData.find(p => p.id === projectId);
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    const foundProject = projectsData.find(p => p.id === projectId);
+    setProject(foundProject);
+  }, [projectId]);
 
   if (!project) {
-    return <div className="text-white text-center py-40">Proyecto no encontrado</div>;
+    return (
+      <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+        <p>Cargando proyecto...</p>
+      </div>
+    );
   }
 
   const { title, description, technologies, images, type, sourceCode, liveDemo, downloadLink } = project;
