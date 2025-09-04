@@ -1,16 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
-    { title: 'Proyectos', href: '#projects' },
-    { title: 'Habilidades', href: '#skills' },
-    { title: 'Educación', href: '#education' },
-    { title: 'Contacto', href: '#contact' },
+    { title: 'Proyectos', hash: '#projects' },
+    { title: 'Habilidades', hash: '#skills' },
+    { title: 'Educación', hash: '#education' },
+    { title: 'Contacto', hash: '#contact' },
   ];
+
+  const handleNavClick = (hash) => {
+    if (isOpen) setIsOpen(false);
+
+    if (location.pathname === '/') {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/${hash}`);
+    }
+  };
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const menuVariants = {
     hidden: { opacity: 0, y: -50 },
@@ -21,15 +46,26 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-md text-white">
         <div className="container mx-auto flex justify-between items-center px-8 py-4">
-          <a href="#hero" className="text-2xl font-bold text-white hover:text-blue-400 transition duration-300">
+          <a 
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('#hero');
+            }}
+            className="text-2xl font-bold text-white hover:text-blue-400 transition duration-300"
+          >
             Iván Alba
           </a>
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.hash}>
                 <a
-                  href={link.href}
+                  href={link.hash}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.hash);
+                  }}
                   className="text-lg hover:text-blue-400 transition duration-300"
                 >
                   {link.title}
@@ -59,11 +95,14 @@ const Navbar = () => {
           >
             <ul className="flex flex-col items-center gap-8">
               {navLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.hash}>
                   <a
-                    href={link.href}
+                    href={link.hash}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.hash);
+                    }}
                     className="text-3xl hover:text-blue-400 transition duration-300"
-                    onClick={() => setIsOpen(false)}
                   >
                     {link.title}
                   </a>
