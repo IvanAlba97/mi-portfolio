@@ -16,7 +16,7 @@ const ProjectCard = ({ id, title, description, image, technologies }) => {
           <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
           <p className="text-gray-300 flex-grow mb-4">{description}</p>
           <div className="flex flex-wrap gap-2 mt-auto">
-            {technologies.slice(0, 4).map((tech, index) => (
+            {technologies.map((tech, index) => (
               <span key={index} className="bg-gray-600 text-teal-300 text-xs font-semibold px-2 py-1 rounded-full">
                 {tech}
               </span>
