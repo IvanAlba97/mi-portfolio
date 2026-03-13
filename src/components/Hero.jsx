@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import profilePic from '../assets/fotoPrincipal.png';
-import cvFile from '../assets/CV - Ivan Alba Gomez - ESP.pdf';
 
 const Hero = () => {
   const containerVariants = {
@@ -58,7 +57,7 @@ const Hero = () => {
               Mis Proyectos
             </a>
             <a
-              href={cvFile}
+              href="/CV - Ivan Alba Gomez - ESP.pdf"
               download="CV - Ivan Alba Gomez - ESP.pdf"
               className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
             >
