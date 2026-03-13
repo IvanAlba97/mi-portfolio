@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import profilePic from '../assets/fotoPrincipal.png';
+import cvFile from '../assets/CV - Ivan Alba Gomez - ESP.pdf';
 
 const Hero = () => {
   const containerVariants = {
@@ -47,7 +48,7 @@ const Hero = () => {
             Desarrollador Web | Creando experiencias digitales modernas y fluidas.
           </motion.p>
           <motion.div 
-            className="flex gap-4 justify-center md:justify-start"
+            className="flex flex-wrap gap-4 justify-center md:justify-start"
             variants={itemVariants}
           >
             <a
@@ -55,6 +56,13 @@ const Hero = () => {
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
             >
               Mis Proyectos
+            </a>
+            <a
+              href={cvFile}
+              download="CV - Ivan Alba Gomez - ESP.pdf"
+              className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+            >
+              Descargar CV
             </a>
             <a
               href="#contact"

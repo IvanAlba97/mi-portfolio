@@ -9,6 +9,7 @@ const skills = [
   { name: 'CSS', icon: <FaCss3Alt size={48} /> },
   { name: 'JavaScript', icon: <FaJsSquare size={48} /> },
   { name: 'React', icon: <FaReact size={48} /> },
+  { name: 'React Native', icon: <FaReact size={48} /> },
   { name: 'Node.js', icon: <FaNodeJs size={48} /> },
   { name: 'Express', icon: <SiExpress size={48} /> },
   { name: 'Tailwind CSS', icon: <SiTailwindcss size={48} /> },
